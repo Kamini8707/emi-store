@@ -9,7 +9,7 @@ The project uses React, Node.js, Express.js, and MongoDB Atlas.
 ## 🚀 Live Demo
 
 **Frontend:**  
-(https://emi-store-five.vercel.app)
+https://emi-store-five.vercel.app
 
 **Backend API:**  
 https://emi-store-backend.onrender.com
