@@ -131,7 +131,8 @@ emi-store/
 └── README.md
 ```
 ---
-⚙️ Setup and Run
+##⚙️ Setup and Run
+
 1. Clone the repository
 ```
 git clone https://github.com/Kamini8707/emi-store.git
@@ -178,3 +179,194 @@ Frontend will run on:
 http://localhost:5173
 ```
 ---
+
+##🔗 API Endpoints
+
+### Products
+Get all products
+```
+GET /api/products
+```
+Example:
+```
+GET http://localhost:5000/api/products
+```
+Example response:
+```
+{
+  "success": true,
+  "products": [
+    {
+      "_id": "product_id",
+      "name": "iPhone 17 Pro",
+      "brand": "Apple",
+      "category": "Smartphone",
+      "price": 127400,
+      "mrp": 134900,
+      "variants": [
+        {
+          "color": "Silver",
+          "storage": "256GB",
+          "stock": 10
+        }
+      ],
+      "emiPlans": [
+        {
+          "tenure": 3,
+          "monthlyPayment": 42467,
+          "interestRate": 0,
+          "cashback": 7500
+        }
+      ]
+    }
+  ]
+}
+```
+### Orders
+Create an order
+```
+POST /api/orders
+```
+Example request:
+```
+{
+  "productId": "product_id",
+  "color": "Silver",
+  "storage": "256GB",
+  "tenure": 3,
+  "customer": {
+    "name": "Test User",
+    "email": "test@example.com",
+    "phone": "9876543210",
+    "address": "Lucknow, Uttar Pradesh",
+    "pincode": "226001"
+  }
+}
+```
+Example response:
+```
+{
+  "success": true,
+  "message": "Order placed successfully",
+  "order": {
+    "orderId": "EMI644979",
+    "productName": "iPhone 17 Pro",
+    "productPrice": 127400,
+    "status": "PLACED"
+  }
+}
+```
+Get all orders
+```
+GET /api/orders
+```
+Example:
+```
+GET http://localhost:5000/api/orders
+```
+Example response:
+```
+{
+  "success": true,
+  "orders": [
+    {
+      "orderId": "EMI644979",
+      "productName": "iPhone 17 Pro",
+      "productPrice": 127400,
+      "status": "PLACED"
+    }
+  ]
+}
+```
+---
+## 🗄️ Database Schema
+### Product
+
+The Product collection contains:
+```
+Product
+├── name
+├── slug
+├── brand
+├── category
+├── description
+├── mrp
+├── price
+├── images[]
+├── variants[]
+│   ├── color
+│   ├── storage
+│   └── stock
+└── emiPlans[]
+    ├── tenure
+    ├── monthlyPayment
+    ├── interestRate
+    └── cashback
+```
+### Order
+
+The Order collection contains:
+```
+Order
+├── orderId
+├── product
+├── productName
+├── variant
+│   ├── color
+│   └── storage
+├── customer
+│   ├── name
+│   ├── email
+│   ├── phone
+│   ├── address
+│   └── pincode
+├── emi
+│   ├── tenure
+│   ├── monthlyPayment
+│   ├── interestRate
+│   └── cashback
+├── productPrice
+├── status
+├── createdAt
+└── updatedAt
+```
+---
+## 🔄 Order Flow
+```
+Browse Products
+      ↓
+View Product
+      ↓
+Select Color & Storage
+      ↓
+Select EMI Plan
+      ↓
+Checkout
+      ↓
+Validate Product / Variant / EMI / Stock
+      ↓
+Create Order
+      ↓
+Decrease Stock
+      ↓
+Order Success
+```
+📦 Database & Seed Data
+
+The project includes:
+
+- Product schema
+- Order schema
+- Product variants
+- EMI plans
+- Sample smartphone data
+- Seed script for MongoDB
+
+Run the seed script with:
+```
+npm run seed
+```
+---
+## 👩‍💻 Author
+
+Kamini Prajapati
