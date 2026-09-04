@@ -63,24 +63,27 @@ function Checkout() {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:5000/api/orders", {
-        method: "POST",
+      const response = await fetch(
+        "https://emi-store-backend.onrender.com/api/orders",
+        {
+          method: "POST",
 
-        headers: {
-          "Content-Type": "application/json",
+          headers: {
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify({
+            productId: product._id,
+
+            color: selectedVariant.color,
+            storage: selectedVariant.storage,
+
+            tenure: selectedPlan.tenure,
+
+            customer: formData,
+          }),
         },
-
-        body: JSON.stringify({
-          productId: product._id,
-
-          color: selectedVariant.color,
-          storage: selectedVariant.storage,
-
-          tenure: selectedPlan.tenure,
-
-          customer: formData,
-        }),
-      });
+      );
 
       const data = await response.json();
 

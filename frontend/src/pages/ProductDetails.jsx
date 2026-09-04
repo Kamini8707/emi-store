@@ -23,7 +23,7 @@ function ProductDetails() {
         setLoading(true);
 
         const response = await fetch(
-          `http://localhost:5000/api/products/slug/${slug}`,
+          `https://emi-store-backend.onrender.com/api/products/slug/${slug}`,
         );
 
         if (!response.ok) {
