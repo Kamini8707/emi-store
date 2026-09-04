@@ -162,7 +162,7 @@ http://localhost:5000
 
 From the backend folder:
 ```
-node seed/seed.js
+npm run seed
 ```
 This inserts the sample products, variants, and EMI plans into MongoDB.
 
