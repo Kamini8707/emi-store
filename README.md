@@ -19,7 +19,7 @@ https://emi-store-backend.onrender.com
 ## 🎥 Project Demo
 
 **Demo Video:**  
-[Add Google Drive / YouTube video link here]
+https://youtu.be/DvVw0y7JdOQ
 
 The video demonstrates:
 - Frontend application
