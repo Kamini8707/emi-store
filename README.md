@@ -129,3 +129,52 @@ emi-store/
 │
 ├── .gitignore
 └── README.md
+```
+---
+⚙️ Setup and Run
+1. Clone the repository
+```
+git clone https://github.com/Kamini8707/emi-store.git
+cd emi-store
+```
+2. Backend Setup
+```
+cd backend
+npm install
+```
+
+Create a .env file inside the backend folder:
+```
+PORT=5000
+MONGO_URI=your_mongodb_atlas_connection_string
+```
+
+Start the backend:
+```
+npm run dev
+```
+Backend will run on:
+```
+http://localhost:5000
+```
+3. Seed the Database
+
+From the backend folder:
+```
+node seed/seed.js
+```
+This inserts the sample products, variants, and EMI plans into MongoDB.
+
+4. Frontend Setup
+
+Open another terminal:
+```
+cd frontend
+npm install
+npm run dev
+```
+Frontend will run on:
+```
+http://localhost:5173
+```
+---
